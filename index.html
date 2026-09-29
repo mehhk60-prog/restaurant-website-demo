@@ -3,160 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مطعم الغنوج - Al Ghanouj | المذاق اللبناني الأصيل</title>
+    <title>مطعم الغنوج - Al Ghanouj | تجربة لبنانية ملكية في الدار البيضاء</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        :root {
+            --primary: #C5A059;
+            --secondary: #1C1C1C;
+            --accent: #FDFBF7;
+        }
         body { font-family: 'Cairo', sans-serif; }
-        .bg-gold { background-color: #D4AF37; }
-        .text-gold { color: #D4AF37; }
-        .border-gold { border-color: #D4AF37; }
+        h1, h2, h3, .font-serif { font-family: 'Amiri', serif; }
+        .bg-primary { background-color: var(--primary); }
+        .text-primary { color: var(--primary); }
+        .border-primary { border-color: var(--primary); }
+        .nav-link:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width .3s;
+        }
+        .nav-link:hover:after { width: 100%; }
+        .menu-card:hover img { transform: scale(1.05); }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-900">
+<body class="bg-[#FDFBF7] text-stone-800">
 
-    <!-- Header -->
-    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-stone-800">الـغـنـوج <span class="text-gold">.</span></div>
-            <div class="hidden md:flex space-x-reverse space-x-8 font-medium">
-                <a href="#home" class="hover:text-gold transition">الرئيسية</a>
-                <a href="#menu" class="hover:text-gold transition">القائمة</a>
-                <a href="#about" class="hover:text-gold transition">من نحن</a>
-                <a href="#contact" class="hover:text-gold transition">اتصل بنا</a>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-[100] glass-nav border-b border-stone-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-reverse space-x-2">
+                <span class="text-3xl font-bold tracking-tighter text-stone-900">الـغـنـوج <span class="text-primary">.</span></span>
             </div>
-            <a href="tel:+212672387032" class="bg-gold text-white px-6 py-2 rounded-full hover:bg-stone-800 transition shadow-lg">احجز الآن</a>
-        </nav>
-    </header>
+            
+            <div class="hidden lg:flex space-x-reverse space-x-10 font-semibold uppercase text-sm tracking-widest">
+                <a href="#home" class="nav-link hover:text-primary transition">الرئيسية</a>
+                <a href="#menu" class="nav-link hover:text-primary transition">قائمة الطعام</a>
+                <a href="#about" class="nav-link hover:text-primary transition">قصتنا</a>
+                <a href="#location" class="nav-link hover:text-primary transition">الموقع</a>
+            </div>
+
+            <div class="flex items-center space-x-reverse space-x-4">
+                <a href="tel:+212672387032" class="hidden sm:flex items-center text-stone-600 hover:text-primary">
+                    <i data-lucide="phone" class="w-4 h-4 ml-2"></i>
+                    <span class="text-sm font-bold">0672-387032</span>
+                </a>
+                <a href="https://wa.me/212672387032" class="bg-primary text-white px-8 py-3 rounded-sm text-sm font-bold hover:bg-stone-900 transition duration-300 shadow-xl">
+                    حجز طاولة
+                </a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center text-center text-white">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=2000" alt="Lebanese Food" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/50"></div>
+    <section id="home" class="relative min-h-screen flex items-center pt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?q=80&w=2070&auto=format&fit=crop" alt="Hero background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40 bg-gradient-to-t from-stone-900/80 to-transparent"></div>
         </div>
-        <div class="relative z-10 px-4">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">مطعم الغنوج</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">نأخذكم في رحلة إلى قلب بيروت بأشهى المأكولات اللبنانية الأصيلة في الدار البيضاء.</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#menu" class="bg-gold text-white px-10 py-4 rounded-md text-lg font-bold hover:bg-white hover:text-gold transition">اكتشف المنيو</a>
-                <a href="https://wa.me/212672387032" class="bg-white text-stone-900 px-10 py-4 rounded-md text-lg font-bold hover:bg-gold hover:text-white transition">اطلب عبر واتساب</a>
+        
+        <div class="container mx-auto px-6 relative z-10 text-white text-center">
+            <span class="text-primary font-serif italic text-2xl mb-4 block tracking-widest">أهلاً بكم في مطعم الغنوج</span>
+            <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-tight">فخامة الضيافة اللبنانية <br>في قلب المعاريف</h1>
+            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto font-light text-stone-200">
+                نقدم لكم أصالة المذاق اللبناني التقليدي بلمسة عصرية، من المازات الشهية إلى المشاوي الفاخرة على الفحم.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="#menu" class="bg-white text-stone-900 px-12 py-5 text-lg font-bold hover:bg-primary hover:text-white transition duration-500 rounded-sm">
+                    استعراض القائمة
+                </a>
+                <a href="#location" class="border border-white/30 backdrop-blur-sm text-white px-12 py-5 text-lg font-bold hover:bg-white/10 transition duration-500 rounded-sm">
+                    تفضل بزيارتنا
+                </a>
             </div>
         </div>
-    </section>
-
-    <!-- Features -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
-            <div>
-                <div class="text-gold text-4xl mb-4">🍽️</div>
-                <h3 class="text-xl font-bold mb-2">مكونات طازجة</h3>
-                <p class="text-stone-600">نستخدم أجود المكونات المحلية والمستوردة لضمان الطعم الأصيل.</p>
-            </div>
-            <div>
-                <div class="text-gold text-4xl mb-4">✨</div>
-                <h3 class="text-xl font-bold mb-2">أجواء راقية</h3>
-                <p class="text-stone-600">تصميم يجمع بين الحداثة والروح الشرقية لتجربة طعام لا تُنسى.</p>
-            </div>
-            <div>
-                <div class="text-gold text-4xl mb-4">🚚</div>
-                <h3 class="text-xl font-bold mb-2">توصيل سريع</h3>
-                <p class="text-stone-600">نصل إليك في أي مكان في الدار البيضاء مع الحفاظ على جودة الطعام.</p>
-            </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-white/50">
+            <i data-lucide="chevron-down" class="w-8 h-8"></i>
         </div>
     </section>
 
-    <!-- Menu Preview -->
-    <section id="menu" class="py-20 bg-stone-50">
+    <!-- Menu Section -->
+    <section id="menu" class="py-32 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">من قائمتنا</h2>
-                <div class="w-20 h-1 bg-gold mx-auto"></div>
+            <div class="text-center mb-24">
+                <span class="text-primary font-bold tracking-[0.3em] uppercase text-sm block mb-4">قائمة الطعام</span>
+                <h2 class="text-5xl font-bold text-stone-900 mb-6">مختارات من مطبخنا</h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Item 1 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-                    <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=800" alt="Mezza" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <h4 class="font-bold text-xl">مازة مشكلة</h4>
-                            <span class="text-gold font-bold">85 DH</span>
+
+            <!-- Categories Tabs -->
+            <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <button class="bg-primary text-white px-8 py-2 rounded-full font-bold">الكل</button>
+                <button class="border border-stone-200 text-stone-600 px-8 py-2 rounded-full hover:border-primary hover:text-primary transition">مازة باردة</button>
+                <button class="border border-stone-200 text-stone-600 px-8 py-2 rounded-full hover:border-primary hover:text-primary transition">مازة ساخنة</button>
+                <button class="border border-stone-200 text-stone-600 px-8 py-2 rounded-full hover:border-primary hover:text-primary transition">مشاوي</button>
+                <button class="border border-stone-200 text-stone-600 px-8 py-2 rounded-full hover:border-primary hover:text-primary transition">حلويات</button>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Cold Mezza Column -->
+                <div>
+                    <h3 class="text-3xl font-bold mb-10 pb-4 border-b border-stone-100 flex items-center justify-between">
+                        <span>مازة باردة و مقبلات</span>
+                        <span class="text-sm font-normal text-stone-400">Cold Appetizers</span>
+                    </h3>
+                    <div class="space-y-8">
+                        <div class="flex justify-between items-start group">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold group-hover:text-primary transition">حمص بيروتي</h4>
+                                <p class="text-stone-500 text-sm mt-1">حمص بالطحينة مع الثوم، البقدونس والليمون.</p>
+                            </div>
+                            <span class="text-lg font-bold ml-6">45 DH</span>
                         </div>
-                        <p class="text-stone-600">مجموعة مختارة من الحمص، المتبل، والتبولة اللبنانية.</p>
+                        <div class="flex justify-between items-start group">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold group-hover:text-primary transition">تبولة</h4>
+                                <p class="text-stone-500 text-sm mt-1">بقدونس طازج مفروم مع البرغل، الطماطم والليمون.</p>
+                            </div>
+                            <span class="text-lg font-bold ml-6">50 DH</span>
+                        </div>
+                        <div class="flex justify-between items-start group">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold group-hover:text-primary transition">بابا غنوج</h4>
+                                <p class="text-stone-500 text-sm mt-1">باذنجان مشوي مع الطحينة وزيت الزيتون البكر.</p>
+                            </div>
+                            <span class="text-lg font-bold ml-6">48 DH</span>
+                        </div>
+                        <div class="flex justify-between items-start group">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold group-hover:text-primary transition">ورق عنب بالزيت</h4>
+                                <p class="text-stone-500 text-sm mt-1">محشو بالأرز، الخضار الطازجة ودبس الرمان.</p>
+                            </div>
+                            <span class="text-lg font-bold ml-6">55 DH</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Item 2 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800" alt="Grill" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <h4 class="font-bold text-xl">مشاوي مشكلة</h4>
-                            <span class="text-gold font-bold">120 DH</span>
+
+                <!-- Grills Column -->
+                <div>
+                    <h3 class="text-3xl font-bold mb-10 pb-4 border-b border-stone-100 flex items-center justify-between">
+                        <span>مشاوي الغنوج</span>
+                        <span class="text-sm font-normal text-stone-400">Al Ghanouj Grills</span>
+                    </h3>
+                    <div class="space-y-8">
+                        <div class="flex justify-between items-start group">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold group-hover:text-primary transition">مشاوي مشكلة فاخرة</h4>
+                                <p class="text-stone-500 text-sm mt-1">كفتة، شيش طاووق ولحم مشوي يقدم مع الثومية والخبز.</p>
+                            </div>
+                            <span class="text-lg font-bold ml-6">145 DH</span>
                         </div>
-                        <p class="text-stone-600">سيخ كفتة، سيخ شيش طاووق، وسيخ لحم مشوي على الفحم.</p>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800" alt="Salad" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <h4 class="font-bold text-xl">فتوش سلطة</h4>
-                            <span class="text-gold font-bold">45 DH</span>
+                        <div class="flex justify-between items-start group">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold group-hover:text-primary transition">شيش طاووق</h4>
+                                <p class="text-stone-500 text-sm mt-1">قطع دجاج متبلة بالخلطة اللبنانية السرية.</p>
+                            </div>
+                            <span class="text-lg font-bold ml-6">95 DH</span>
                         </div>
-                        <p class="text-stone-600">خضار طازجة مع خبز محمص ودبس رمان.</p>
+                        <div class="flex justify-between items-start group">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold group-hover:text-primary transition">كستليتة غنم</h4>
+                                <p class="text-stone-500 text-sm mt-1">ريش غنم مشوية على الفحم تذوب في الفم.</p>
+                            </div>
+                            <span class="text-lg font-bold ml-6">160 DH</span>
+                        </div>
+                        <div class="flex justify-between items-start group">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold group-hover:text-primary transition">عرايس كفتة</h4>
+                                <p class="text-stone-500 text-sm mt-1">لحم مفروم مع بهارات لبنانية داخل خبز محمص.</p>
+                            </div>
+                            <span class="text-lg font-bold ml-6">85 DH</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-12">
-                <a href="#" class="border-2 border-gold text-gold px-8 py-3 rounded-md font-bold hover:bg-gold hover:text-white transition">عرض القائمة الكاملة</a>
+
+            <div class="mt-20 text-center">
+                <a href="#" class="inline-flex items-center text-primary font-bold hover:text-stone-900 transition">
+                    <span>تحميل القائمة الكاملة (PDF)</span>
+                    <i data-lucide="download" class="w-5 h-5 mr-2"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Contact -->
-    <footer id="contact" class="bg-stone-900 text-white py-16">
-        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12">
-            <div>
-                <h3 class="text-2xl font-bold mb-6">الـغـنـوج</h3>
-                <p class="text-stone-400">نحن فخورون بتقديم أفضل تجربة طعام لبنانية في الدار البيضاء منذ سنوات. تفضلوا بزيارتنا!</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold mb-6">اتصل بنا</h3>
-                <ul class="space-y-4 text-stone-400">
-                    <li class="flex items-center gap-3">
-                        <span>📍</span>
-                        113 زنقة نورماندي، المعاريف، الدار البيضاء
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span>📞</span>
-                        +212 6 72 38 70 32
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span>📱</span>
-                        Instagram: @alghanouj_casablanca
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold mb-6">ساعات العمل</h3>
-                <ul class="space-y-4 text-stone-400">
-                    <li class="flex justify-between">
-                        <span>الاثنين - الأحد</span>
-                        <span>12:00 م - 12:00 ص</span>
-                    </li>
-                </ul>
+    <!-- Experience / About -->
+    <section id="about" class="py-32 bg-[#F9F7F2]">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" alt="Interior" class="rounded-sm shadow-2xl relative z-10">
+                    <div class="absolute -top-10 -right-10 w-64 h-64 border-[20px] border-primary/20 -z-0"></div>
+                </div>
+                <div>
+                    <span class="text-primary font-bold tracking-[0.3em] uppercase text-sm block mb-4">قصتنا</span>
+                    <h2 class="text-5xl font-bold text-stone-900 mb-8 leading-tight">أكثر من مجرد مطعم، <br>إنها رحلة ثقافية.</h2>
+                    <p class="text-stone-600 text-lg leading-relaxed mb-8">
+                        في الغنوج، نؤمن أن الطعام هو لغة الحب. منذ افتتاحنا في حي المعاريف، التزمنا بتقديم الوصفات التقليدية التي توارثتها الأجيال، مع الاهتمام بأدق التفاصيل في الخدمة والأجواء.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-8">
+                        <div class="flex items-start space-x-reverse space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-full">
+                                <i data-lucide="music" class="w-6 h-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold mb-1">موسيقى حية</h5>
+                                <p class="text-sm text-stone-500">استمتع بأنغام العود في عطلة نهاية الأسبوع.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-reverse space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-full">
+                                <i data-lucide="users" class="w-6 h-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold mb-1">جو عائلي</h5>
+                                <p class="text-sm text-stone-500">مساحات مريحة مخصصة للعائلات والمناسبات.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="container mx-auto px-6 mt-16 pt-8 border-t border-stone-800 text-center text-stone-500">
-            <p>© 2026 مطعم الغنوج. جميع الحقوق محفوظة. تم التطوير بواسطة WebSolutions.</p>
+    </section>
+
+    <!-- Location & Contact -->
+    <section id="location" class="py-32 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-1">
+                    <h2 class="text-4xl font-bold mb-8">تواصل معنا</h2>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-reverse space-x-4">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-primary mt-1"></i>
+                            <div>
+                                <h5 class="font-bold">موقعنا</h5>
+                                <p class="text-stone-500">113 زنقة نورماندي، المعاريف، الدار البيضاء، المغرب</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-reverse space-x-4">
+                            <i data-lucide="clock" class="w-6 h-6 text-primary mt-1"></i>
+                            <div>
+                                <h5 class="font-bold">ساعات العمل</h5>
+                                <p class="text-stone-500">يومياً: 12:00 م - 12:00 ص</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-reverse space-x-4">
+                            <i data-lucide="phone-call" class="w-6 h-6 text-primary mt-1"></i>
+                            <div>
+                                <h5 class="font-bold">الحجز والاستفسار</h5>
+                                <p class="text-stone-500">0672-387032</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 flex space-x-reverse space-x-4">
+                        <a href="https://www.instagram.com/alghanouj_casablanca/" class="w-12 h-12 bg-stone-100 flex items-center justify-center rounded-full hover:bg-primary hover:text-white transition">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.facebook.com/elghanouj.officiel" class="w-12 h-12 bg-stone-100 flex items-center justify-center rounded-full hover:bg-primary hover:text-white transition">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-2 h-[500px] bg-stone-100 rounded-sm overflow-hidden shadow-inner relative">
+                    <!-- Google Maps Placeholder -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.03478954753!2d-7.6366!3d33.5857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDM1JzA4LjUiTiA3wrAzOCcxMS44Ilc!5e0!3m2!1sen!2sma!4v1620000000000!5m2!1sen!2sma" 
+                        class="w-full h-full border-0 grayscale hover:grayscale-0 transition duration-1000" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-white py-20 border-t border-stone-800">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-4xl font-bold mb-8">الـغـنـوج <span class="text-primary">.</span></div>
+            <p class="text-stone-500 max-w-xl mx-auto mb-12">
+                نحن ملتزمون بتقديم تجربة طعام لا تُنسى. شكراً لكونكم جزءاً من عائلتنا في الدار البيضاء.
+            </p>
+            <div class="flex justify-center space-x-reverse space-x-8 text-sm font-bold uppercase tracking-widest text-stone-400 mb-12">
+                <a href="#home" class="hover:text-primary">الرئيسية</a>
+                <a href="#menu" class="hover:text-primary">القائمة</a>
+                <a href="#about" class="hover:text-primary">الخصوصية</a>
+            </div>
+            <div class="text-stone-600 text-xs">
+                © 2026 مطعم الغنوج. جميع الحقوق محفوظة. تم التصميم باحترافية بواسطة WebSolutions.
+            </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/212672387032" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition z-50">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.148-.67-1.614-.918-2.213-.242-.584-.487-.506-.67-.516-.174-.008-.373-.01-.572-.01-.199 0-.523.074-.797.373-.273.3-.1.742-.3 1.103 0 .363-.273.71-.472 1.053-.2.343-1.012 1.543-2.453 2.793-1.192 1.039-2.196 1.348-2.97 1.348-.773 0-1.474-.31-1.996-.583-.522-.274-1.22-.55-1.22-1.218 0-.668.697-1.04 1.044-1.22z"/></svg>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/212672387032" class="fixed bottom-10 right-10 z-[200] group">
+        <div class="bg-green-500 text-white p-5 rounded-full shadow-[0_10px_40px_rgba(34,197,94,0.4)] group-hover:scale-110 transition duration-300 relative">
+            <i data-lucide="message-circle" class="w-8 h-8"></i>
+            <span class="absolute right-full mr-4 bg-white text-stone-900 px-4 py-2 rounded-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition whitespace-nowrap pointer-events-none shadow-xl">
+                اطلب الآن عبر واتساب
+            </span>
+        </div>
     </a>
 
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
